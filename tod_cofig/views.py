@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
-def todo(request):
-    return render(request,'index.html') 
+def login(request):
+    return render(request,'login.html') 
+
+def reg(request):
+    return render(request,"reg.html")
 # Create your views here.

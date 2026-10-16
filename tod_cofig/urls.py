@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.todo,name = "todo_list")
+    path('',views.
+         login,name = "login"),
+    path('reg',views.reg,name = "reg"),
     
 ]
