@@ -28,7 +28,20 @@ driver.maximize_window()
 # # both are the same 
 # driver.find_element(By.CSS_SELECTOR,".x1i10hfl").send_keys("email")
 
-time.sleep(10)
+
+# 3.tag and attribute
+# 
+# tag_tame[att=value] 
+# driver.find_element(By.CSS_SELECTOR,"input[dir = ltr]").send_keys("email")
+
+# both are same 
+
+# catch : it might select a tag having same attribute if you not specify the input tag 
+# driver.find_element(By.CSS_SELECTOR,"[dir = ltr]").send_keys("email")
+
+
+
+time.sleep(3)
 
 
 

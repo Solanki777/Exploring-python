@@ -1,3 +1,1 @@
-
-
-# driver.close()
+driver.find_element(By.CSS_SELECTOR,"input[dir = ltr]").send_keys("email")
