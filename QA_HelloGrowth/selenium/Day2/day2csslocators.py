@@ -48,7 +48,7 @@ driver.maximize_window()
 
 driver.find_element(
     By.CSS_SELECTOR, ".x1i10hfl[dir=ltr]"
-).send_keys("email")d
+).send_keys("email")
 
 time.sleep(4)
 
