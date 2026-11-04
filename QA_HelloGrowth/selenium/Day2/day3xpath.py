@@ -33,7 +33,9 @@ time.sleep(3)
 
 # The same way you can use and operator as or 
 
-# starts-with() and contains() operator 
+# starts-with() and contains() operator
+driver.find_element(By.XPATH,"//input[contains(@name,'name')]").send_keys("name")
+driver.find_element(By.XPATH,"//input[starts-with(@name,'user')]").send_keys("name")
 
 
 
