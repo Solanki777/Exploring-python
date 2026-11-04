@@ -4,7 +4,7 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://automationexercise.com/products")
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
 driver.maximize_window()
 
@@ -21,6 +21,21 @@ time.sleep(3)
 
 # OR 
 # driver.find_element(By.XPATH, """//*[@id="search_product"]""").send_keys("hello")
+
+
+# or : when you are using the double qutes inside the string then make sure to use single quotes outside 
+# 1 . when you are using realative and fulll xpath use | as or two combine two diffrenet xpath
+# print(driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input | /html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input' ))
+
+# # 2.when you are use same kind of x path use or 
+# print(driver.find_element(By.XPATH, "//input[@name='username' or @placeholder='Username']"))
+
+
+# The same way you can use and operator as or 
+
+# starts-with() and contains() operator 
+
+
 
 time.sleep(3)
 
