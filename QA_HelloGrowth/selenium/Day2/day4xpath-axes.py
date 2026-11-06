@@ -14,6 +14,10 @@ time.sleep(3)
 capture = driver.find_element(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/self::a").text
 print(capture)
 
+# parent : here parent td as nothing inside the td element so defaultly it will print the self tag inner text
+capture_p = driver.find_element(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/parent::td").text
+print(capture_p)
+
 
 
 driver.close()
