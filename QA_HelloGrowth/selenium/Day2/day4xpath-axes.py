@@ -32,15 +32,19 @@ time.sleep(3)
 
 
 # preceding
-capture_t = driver.find_elements(By.XPATH ,"//td[contains(text(),'563.65')]/preceding::tr")
-print(len(capture_t))
+# capture_t = driver.find_elements(By.XPATH ,"//td[contains(text(),'563.65')]/preceding::tr")
+# print(len(capture_t))
 
-# following
-capture = driver.find_elements(By.XPATH ,"//td[contains(text(),'563.65')]/following::tr")
+# # following
+# capture = driver.find_elements(By.XPATH ,"//td[contains(text(),'563.65')]/following::tr")
+# print(len(capture))
+
+# # total tr of td is :
+# total_tr = len(capture_t) + len(capture) + 1 #current
+# print(total_tr)
+
+# descendant
+capture = driver.find_elements(By.XPATH,"//td[contains(text(),'563.65')]/parent::tr/parent::tbody/descendant::tr")
 print(len(capture))
-
-# total tr of td is :
-total_tr = len(capture_t) + len(capture) + 1 #current
-print(total_tr)
 
 driver.close()
