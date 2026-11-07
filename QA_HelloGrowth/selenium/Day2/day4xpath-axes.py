@@ -27,7 +27,12 @@ time.sleep(3)
 # print(capture_p)
 
 # preceding-sibling
-capture = driver.find_element(By.XPATH ,"//td[contains(text(),'563.65')]/preceding-sibling::td").text
-print(capture)
+# capture = driver.find_element(By.XPATH ,"//td[contains(text(),'563.65')]/preceding-sibling::td").text
+# print(capture)
+
+
+# preceding
+capture = driver.find_elements(By.XPATH ,"//td[contains(text(),'563.65')]/preceding::tr")
+print(len(capture))
 
 driver.close()
