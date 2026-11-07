@@ -19,9 +19,12 @@ time.sleep(3)
 # print(capture_p) 
 
 # ancestor which give the gradparent address
-capture_p = driver.find_elements(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/ancestor::tr/child::td")
-print(len(capture_p))
+# capture_p = driver.find_elements(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/ancestor::tr/child::td")
+# print(len(capture_p))
 
+# following sibling
+# capture_p = driver.find_element(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/parent::td/following-sibling::td").text
+# print(capture_p)
 
 
 
