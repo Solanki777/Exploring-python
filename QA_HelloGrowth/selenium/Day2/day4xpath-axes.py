@@ -26,6 +26,8 @@ time.sleep(3)
 # capture_p = driver.find_element(By.XPATH,"//a[contains(text(),'HDFC Life Insurance')]/parent::td/following-sibling::td").text
 # print(capture_p)
 
-
+# preceding-sibling
+capture = driver.find_element(By.XPATH ,"//td[contains(text(),'563.65')]/preceding-sibling::td").text
+print(capture)
 
 driver.close()
