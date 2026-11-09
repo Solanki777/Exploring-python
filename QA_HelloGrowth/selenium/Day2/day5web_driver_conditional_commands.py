@@ -49,6 +49,16 @@ driver.get("https://the-internet.herokuapp.com/checkboxes")
 
 time.sleep(2)
 
+
+# close the orageHRM tab 
+tabs = driver.window_handles
+driver.switch_to.window(tabs[0])
+driver.close()
+
+driver.switch_to.window(tabs[1])
+
+time.sleep(3)
+
 checkbox = driver.find_element(By.XPATH, "//input[@type='checkbox']")
 
 print("Before clicking:", checkbox.is_selected())
@@ -57,4 +67,5 @@ checkbox.click()
 
 print("After clicking:", checkbox.is_selected())
 
+# close all website
 driver.quit()
