@@ -1,1 +1,1 @@
-//input[@type='text' or @type='email']
+is_enabled
