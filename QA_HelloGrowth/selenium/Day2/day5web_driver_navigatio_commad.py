@@ -21,6 +21,6 @@ links = driver.find_element(By.XPATH,
     '//*[@id="navbar-main"]//a'
 )
 
-print(len(links))
+print(links)
 
 driver.quit()
