@@ -50,3 +50,6 @@ print(em.text)
 
 # but this is used for the values written inside the input box 
 print(em.get_attribute('value'))
+
+
+# for button if we find text so it will give the text inside <button> and </button> but for get_attribute('value') we can not write becuase it is not input field so 
