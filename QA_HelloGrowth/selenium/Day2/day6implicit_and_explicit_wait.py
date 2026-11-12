@@ -7,7 +7,7 @@ driver = webdriver.Chrome()
 
 driver.get("https://www.google.com")
 
-time.sleep(3)
+driver.implicitly_wait(10)
 
 googletext = driver.find_element(By.ID,'ti6dpd')
 
