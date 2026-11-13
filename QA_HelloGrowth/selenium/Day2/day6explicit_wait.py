@@ -15,14 +15,17 @@ driver.get("https://www.selenium.dev/selenium/web/dynamic.html?utm_source=chatgp
 
 # wait object which everyt is used to for diffrent pages to be loadded 
 #  - you can specify the exception you need to ignore during the automation in waitng like no such element 
-wait = WebDriverWait(driver,10,ignored_exceptions=[TimeoutException,NoSuchElementException])
+# - polling defaut value is 0.5 sec 
+wait = WebDriverWait(driver,10,poll_frequency=2  ,ignored_exceptions=[TimeoutException,NoSuchElementException])
+
+
 
 
 
 
 # EC - excepted condition : it will return the element if it exits in the web page else it trow the exception
 gotch_add_box = wait.until(
-    EC.visibility_of_element_located((By.ID ,'addedr'))
+    EC.visibility_of_element_located((By.ID ,'adder'))
 )
 
 gotch_add_box.click()
