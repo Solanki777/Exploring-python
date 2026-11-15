@@ -36,11 +36,16 @@ wait.until(EC.presence_of_element_located((By.XPATH,'//*[@id="maintext"]/div[1]/
 all_a = driver.find_elements(By.TAG_NAME,'a')
 
 ctn = 0
+
+
 for link in all_a:
-    url = link.get_attribute('href')
-    res = requests.head(url)
-    if res.status_code >= 400 : ctn += 1
-    print(url , " is the broken link")
+    try :
+        url = link.get_attribute('href')
+        res = requests.head(url,timeout=10)
+
+        if res.status_code >= 400 : ctn += 1
+        print(f"the broken link:{url} - Status : {res.status_code}")
+    except requests.exceptions.RequestException as e :print("broken link :{url} Error : {e}")
 
 print("total broken link :" ,ctn)
  
