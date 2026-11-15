@@ -1,1 +1,1 @@
-https://www.selenium.dev/selenium/web/dynamic.html?utm_source=chatgpt.com
+click
