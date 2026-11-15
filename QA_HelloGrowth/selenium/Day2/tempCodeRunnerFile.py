@@ -1,1 +1,1 @@
-click
+https://admin-demo.nopcommerce.com/login
