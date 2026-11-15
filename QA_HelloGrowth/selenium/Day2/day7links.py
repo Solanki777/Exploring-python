@@ -43,9 +43,18 @@ for link in all_a:
         url = link.get_attribute('href')
         res = requests.head(url,timeout=10)
 
-        if res.status_code >= 400 : ctn += 1
+        if res.status_code >= 400 : 
+            ctn += 1
+            print(res)
+            print("Response:", res)
+            print("Status Code:", res.status_code)
+            print("Final URL:", res.url)
+            print("Reason:", res.reason)
+            print("Headers:", res.headers)
+            print("Time:", res.elapsed)
+            break
         print(f"the broken link:{url} - Status : {res.status_code}")
-    except requests.exceptions.RequestException as e :print("broken link :{url} Error : {e}")
+    except Exception as e :print("broken link :{url} Error : {e}")
 
 print("total broken link :" ,ctn)
  
