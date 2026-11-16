@@ -12,13 +12,23 @@ OK_elert = driver.find_element(By.XPATH , "/html/body/div[1]/div[1]/section/div/
 OK_c_elert = driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/section/div/div[2]/div/div[2]/div/div/div/div/div[2]/div[2]/button")
 print_elert = driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/section/div/div[2]/div/div[2]/div/div/div/div/div[2]/div[3]/button")
 
+# Ok alert 
+# time.sleep(2)
+# OK_elert.click()
+# time.sleep(2)
+# alertwindow = driver.switch_to.alert
+# alertwindow.accept()
+# time.sleep(2)
+# print("simple OK alert")
+
+# Ok and cacel alert
 time.sleep(2)
-OK_elert.click()
-time.sleep(2)
+OK_c_elert.click()
 alertwindow = driver.switch_to.alert
 alertwindow.accept()
+# alertwindow.dismiss()
 time.sleep(2)
-print("simple OK alert")
+print("Ok cacel is working fine")
 
 
 
