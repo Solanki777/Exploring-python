@@ -1,31 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time 
+import time
 
-driver = webdriver.Chrome()
+# it contines the functionality of browser
+ops = webdriver.ChromeOptions()
 
-driver.get("https://testautomationpractice.blogspot.com/")
+ops.add_argument("--disable-notifications")
+ops.add_argument("--incognito")
+ops.add_argument("--start-maximized")
 
-driver.find_element(By.XPATH,'//*[@id="Wikipedia1_wikipedia-search-input"]').send_keys("selenium")
 
-driver.find_element(By.XPATH,'//*[@id="Wikipedia1_wikipedia-search-form"]/div/span[2]/span[2]/input').click()
+driver = webdriver.Chrome(options=ops)
 
-link_tags = driver.find_elements(By.XPATH,"//div[@id='wikipedia-search-result-link']//a")
-
-print("Links found:", len(link_tags))
-main = driver.current_window_handle
-for link in link_tags:
-    url = link.get_attribute("href")
-    driver.switch_to.new_window("tab")
-    driver.get(url)
-    
-    
-
-windows = driver.window_handles
-print(len(windows))
-print("Links found:", len(link_tags))
+driver.get("https://www.youtube.com/")
 time.sleep(5)
-
-driver.close()
-
-
+driver.quit()
