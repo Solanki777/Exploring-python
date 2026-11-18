@@ -11,10 +11,16 @@ driver.maximize_window()
 frem = driver.find_element(By.XPATH,'//*[@id="singleframe"]')
 print("element found")
 
+# go into the fram 
 driver.switch_to.frame(frem)
+
+# find the path into the fram 
 driver.find_element(By.XPATH,"/html/body/section/div/div/div/input").send_keys("hello world")
 
-driver.switch_to.default_content()
+# driver.switch_to.default_content()
+# or 
+driver.switch_to.parent_frame()
+# for the use of multiple inner frames 
 
 print("getting back to normal")
 
