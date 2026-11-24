@@ -1,75 +1,45 @@
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
-
-
-# 1.alert 
-# driver = webdriver.Chrome()
-# driver.get("https://the-internet.herokuapp.com/javascript_alerts")
-
-
-# driver.find_element(By.XPATH,'//*[@id="content"]/div/ul/li[1]/button').click()
-
-# time.sleep(3)
-# alt = driver.switch_to.alert
-# alt.accept()
-
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-# import time
-
-# driver = webdriver.Chrome()
-# driver.get("https://the-internet.herokuapp.com/javascript_alerts")
-
-# # main = driver.current_window_handle()
-
-
-# time.sleep(2)
-# driver.find_element(By.XPATH,'//*[@id="content"]/div/ul/li[1]/button').click()
-
-# time.sleep(3)
-# alt = driver.switch_to.alert
-# alt.accept()
-
-
-# 2.ok cancel alert
-
-# driver = webdriver.Chrome()
-# driver.get("https://the-internet.herokuapp.com/javascript_alerts")
-
-# driver.find_element(By.XPATH,'//*[@id="content"]/div/ul/li[2]/button').click()
-
-
-# time.sleep(2)
-# ac = driver.switch_to.alert
-
-# # ac.accept
-# # OR 
-# ac.dismiss
-
-# time.sleep(3)
-
-
-# 3.propmt sending 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
-driver.get("https://the-internet.herokuapp.com/javascript_alerts")
+driver.maximize_window()
 
-print(driver.title)
-driver.find_element(By.XPATH,'//*[@id="content"]/div/ul/li[3]/button').click()
+try:
+    wait = WebDriverWait(driver, 10)
 
-time.sleep(2)
+    driver.get("https://the-internet.herokuapp.com/javascript_alerts")
 
-alt = driver.switch_to.alert
-time.sleep(2)
-alt.send_keys("hello world")
+    print("Page title:", driver.title)
 
+    # Open prompt alert
+    driver.find_element(
+        By.XPATH, '//*[@id="content"]/div/ul/li[3]/button'
+    ).click()
 
+    # Switch to alert
+    alert = wait.until(EC.alert_is_present())
 
-# OR 
-# ac.dismiss
+    # Enter text
+    alert.send_keys("hello world")
 
-time.sleep(3)
+    # Accept alert
+    alert.accept()
 
-driver.close()
+    # Verify result
+    result = wait.until(
+        EC.visibility_of_element_located((By.ID, "result"))
+    )
 
+    assert result.text == "You entered: hello world"
+
+    print("PASS: Prompt alert handled successfully")
+
+except Exception as e:
+    print("TEST FAILED:", repr(e))
+    raise
+
+finally:
+    driver.quit()

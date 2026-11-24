@@ -2,23 +2,29 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
-
-driver.get("https://www.saucedemo.com/")
 driver.maximize_window()
 
-# username access 
-driver.find_element(By.XPATH,'//*[@id="user-name"]').send_keys("standard_user")
+try:
+    driver.get("https://www.saucedemo.com/")
 
-# password access  
-driver.find_element(By.XPATH,'//*[@id="password"]').send_keys("secret_sauce")
+    assert driver.title == "Swag Labs"
+    print("Pass1")
 
-# click onthe login button
-driver.find_element(By.XPATH,'//*[@id="login-button"]').click()
+    username = driver.find_element(By.ID, "user-name")
+    assert username.is_displayed()
+    print("pass2")
 
-print(driver.title)
-if driver.title == "Swag Labs":
-    print("Scenario 1 passes")
-else :
-    print("Scenario 1 Failed")
+    password = driver.find_element(By.ID,"password")
+    assert password.is_displayed()
+    print("pass3")
 
-driver.close()
+    login = driver.find_element(By.ID, "login-button")
+    assert login.is_displayed()
+    assert login.is_enabled()
+    print("Pass4")
+
+    print("all test casees passed")
+
+
+
+except Exception as e:print(e)
