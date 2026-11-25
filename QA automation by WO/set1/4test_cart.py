@@ -60,7 +60,9 @@ try :
     print("Pass4")
 
 
+
     
 except Exception as e :
     print("test case faild :",e)
 
+finally: driver.quit()

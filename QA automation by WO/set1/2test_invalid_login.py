@@ -46,6 +46,4 @@ try:
 except Exception as e:
     print("TEST FAILED:", e)
     raise
-
-finally:
-    driver.quit()
+finally: driver.quit()
